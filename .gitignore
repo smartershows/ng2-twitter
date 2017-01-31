@@ -35,6 +35,13 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
-#System Files
+# System Files
 .DS_Store
 Thumbs.db
+
+# API Key
+/src/app/apikeys.ts
+
+# Karma testing
+/.tmp
+/karma_html

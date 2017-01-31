@@ -8,6 +8,8 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
+      require('karma-spec-reporter'),
+      require('karma-html-reporter'),
       require('karma-remap-istanbul'),
       require('angular-cli/plugins/karma')
     ],
@@ -26,18 +28,25 @@ module.exports = function (config) {
         lcovonly: './coverage/coverage.lcov'
       }
     },
+    customLaunchers: {
+      ChromeWithoutWebSecurity: {
+        base: 'Chrome',
+        flags: ['--disable-web-security'],
+        chromeDataDir: '.tmp'
+      }
+    },
     angularCli: {
       config: './angular-cli.json',
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'karma-remap-istanbul']
-              : ['progress'],
+              ? ['spec', 'html', 'karma-remap-istanbul']
+              : ['spec', 'html'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeWithoutWebSecurity'],
     singleRun: false
   });
 };

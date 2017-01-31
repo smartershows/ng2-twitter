@@ -3,12 +3,17 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+import { AuthorizedRequestService } from '../ng2-twitter-module';
+
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      providers: [
+        {provide: AuthorizedRequestService}
+      ]
     });
     TestBed.compileComponents();
   });

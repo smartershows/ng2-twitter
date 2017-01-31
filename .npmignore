@@ -1,0 +1,15 @@
+.tmp
+.vscode
+dist
+e2e
+karma_html
+src/*
+node_modules
+
+.editorconfig
+.gitignore
+*.json
+*.log
+*.tgz
+karma.conf.js
+protractor.conf.js
